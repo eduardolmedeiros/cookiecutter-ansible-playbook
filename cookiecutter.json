@@ -1,0 +1,15 @@
+{
+    "full_name": "Your name",
+    "email": "Your address email (eq. you@example.com)",
+    "project_name": "Name of the project",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
+    "project_short_description": "A short description of the project",
+    "release_date": "{% now 'local' %}",
+    "version": "0.1.0",
+    "vagrant_hostname": "{{ cookiecutter.project_slug }}.vagrant.local",
+    "vagrant_cpu": "2",
+    "vagrant_memory": "2048",
+    "vagrant_box": "centos/7",
+    "license": ["MIT license", "BSD license", "Apache Software License 2.0", "GNU General Public License v3"],
+    "_extensions": ["jinja2_time.TimeExtension"]
+}

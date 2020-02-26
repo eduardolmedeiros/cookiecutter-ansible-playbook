@@ -1,0 +1,6 @@
+.DS_Store
+roles/*
+!roles/requirements.yml
+.env/
+*.retry
+.vagrant

@@ -1,0 +1,23 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "{{ cookiecutter.vagrant_box }}"
+
+  config.vm.provider "virtualbox" do |v|
+    # Display the VirtualBox GUI when booting the machine
+    v.gui = false
+
+    # Customize the amount of memory on the VM:
+    v.memory = "{{ cookiecutter.vagrant_memory }}"
+    v.cpus   = "{{ cookiecutter.vagrant_cpu }}"
+  end
+  
+  config.vm.define "{{ cookiecutter.vagrant_hostname }}"
+  config.vm.provision "ansible" do |ansible|
+    ansible.limit          = "{{ cookiecutter.vagrant_hostname }}"
+    ansible.playbook       = "../{{ cookiecutter.project_slug}}-playbook.yml"
+    ansible.verbose        = false
+  end
+end
+
